@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1070641402449",
+    "project_id": "public-gallery-sungho",
+    "storage_bucket": "public-gallery-sungho.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070641402449:android:776f8da12883254fdbde70",
+        "android_client_info": {
+          "package_name": "com.publicgallerysungho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070641402449-gjlup4gv7r40mquttu6vd6o7856mvj81.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.publicgallerysungho",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1070641402449-fvgemqa5akc3q19sm38a2n7v749n753t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVtJOd5Ip5iwkiBEbxZ8LFF523FSgtMC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070641402449-fvgemqa5akc3q19sm38a2n7v749n753t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

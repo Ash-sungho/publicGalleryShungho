@@ -10,11 +10,11 @@ const SignInScreen = () => {
         <Text style={styles.text}>PublicGallery</Text>
       </View>
       <View style={styles.form}>
-        <BorderInput hasMarginBottom />
-        <BorderInput />
+        <BorderInput hasMarginBottom placeholder="이메일" />
+        <BorderInput placeholder="비밀번호" />
         <View style={styles.buttons}>
           <CustomButton title="로그인" hasMarginBottom />
-          <CustomButton title="회원가입" />
+          <CustomButton title="회원가입" theme={'secondary'} />
         </View>
       </View>
     </SafeAreaView>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 32,
     fontWeight: 'bold',
+    color: 'black',
   },
   form: {
     marginTop: 64,

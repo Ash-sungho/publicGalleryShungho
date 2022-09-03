@@ -1,8 +1,13 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
-const BorderInput = ({hasMarginBottom}) => {
-  return <TextInput style={[styles.input, hasMarginBottom && styles.margin]} />;
+const BorderInput = ({hasMarginBottom, ...rest}) => {
+  return (
+    <TextInput
+      style={[styles.input, hasMarginBottom && styles.margin]}
+      {...rest}
+    />
+  );
 };
 
 export default BorderInput;

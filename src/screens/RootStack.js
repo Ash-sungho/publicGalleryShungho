@@ -12,7 +12,7 @@ function RootStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="SignScreen"
+        name="SignInScreen"
         component={SignInScreen}
         options={{
           headerShown: false,

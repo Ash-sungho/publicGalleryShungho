@@ -3,7 +3,8 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import BorderInput from '../components/BorderInput';
 import CustomButton from '../components/CustomButton';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation, route}) => {
+  const {isSignUp} = route.params ?? {};
   return (
     <SafeAreaView style={styles.fullScreen}>
       <View>
@@ -11,10 +12,38 @@ const SignInScreen = () => {
       </View>
       <View style={styles.form}>
         <BorderInput hasMarginBottom placeholder="이메일" />
-        <BorderInput placeholder="비밀번호" />
+        <BorderInput placeholder="비밀번호" hasMarginBottom={isSignUp} />
+        {isSignUp && <BorderInput placeholder="비밀번호 확인" />}
         <View style={styles.buttons}>
-          <CustomButton title="로그인" hasMarginBottom />
-          <CustomButton title="회원가입" theme={'secondary'} />
+          {isSignUp ? (
+            <>
+              <CustomButton
+                title="회원가입"
+                theme={'secondary'}
+                hasMarginBottom
+              />
+              <CustomButton
+                title="로그인"
+                theme={'primary'}
+                onPress={() => {
+                  navigation.goBack();
+                  console.log('Press');
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <CustomButton title="로그인" theme={'primary'} hasMarginBottom />
+              <CustomButton
+                title="회원가입"
+                theme={'secondary'}
+                onPress={() => {
+                  console.log('Press2');
+                  navigation.push('SignInScreen', {isSignUp: true});
+                }}
+              />
+            </>
+          )}
         </View>
       </View>
     </SafeAreaView>

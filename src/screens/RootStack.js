@@ -4,7 +4,7 @@ import MainTab from './MainTab';
 import SettingScreen from './SettingScreen';
 import UploadScreen from './UploadScreen';
 import WelcomeScreen from './WelcomeScreen';
-import SignInScreen from './SignInScreen';
+import SignInScreen from './signIn/SignInScreen';
 
 const Stack = createNativeStackNavigator();
 

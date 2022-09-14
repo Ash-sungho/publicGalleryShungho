@@ -21,7 +21,13 @@ function RootStack() {
       <Stack.Screen name="MainTab" component={MainTab} />
       <Stack.Screen name="SettingScreen" component={SettingScreen} />
       <Stack.Screen name="UploadScreen" component={UploadScreen} />
-      <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+      <Stack.Screen
+        name="WelcomeScreen"
+        component={WelcomeScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }

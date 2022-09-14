@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import {signIn, signUp} from '../../lib/auth';
+import {createUser, getUser} from '../../lib/users';
 import SignButton from './components/SignButton';
 import SignForm from './components/SignForm';
 
@@ -30,13 +31,27 @@ const SignInScreen = ({navigation, route}) => {
     Keyboard.dismiss();
     const {email, password, confirmPassword} = form;
     const info = {email, password};
+    if (email === '' || password === '') {
+      Alert.alert('실패', '이메일과 패스워드를 입력해주세요');
+      return;
+    }
     if (isSignUp && password !== confirmPassword) {
       Alert.alert('실패', '비밀번호가 일치하지 않습니다.');
+      return;
     }
+
     setLoading(true);
     try {
       const {user} = isSignUp ? await signUp(info) : await signIn(info);
-      console.log(user);
+      console.log('SignInScreen ::', user);
+      const profile = await getUser(user.uid);
+      console.log('profile===========', profile);
+      if (!profile) {
+        navigation.navigate('WelcomeScreen', {uid: user.uid});
+      } else {
+        //TODO:구현예정
+        console.log(' //TODO:구현예정', profile);
+      }
     } catch (e) {
       const message = {
         'auth/email-already-in-use': '이미 가입된 이메일입니다.',

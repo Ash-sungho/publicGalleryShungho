@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import useUserContext from '../../contexts/UserContext';
 import {signIn, signUp} from '../../lib/auth';
 import {createUser, getUser} from '../../lib/users';
 import SignButton from './components/SignButton';
@@ -22,6 +23,7 @@ const SignInScreen = ({navigation, route}) => {
     confirmPassword: '',
   });
   const [loading, setLoading] = useState();
+  const {setUser} = useUserContext();
 
   const createChangeTextHandler = ({name, text}) => {
     setForm({...form, [name]: text});
@@ -49,8 +51,7 @@ const SignInScreen = ({navigation, route}) => {
       if (!profile) {
         navigation.navigate('WelcomeScreen', {uid: user.uid});
       } else {
-        //TODO:구현예정
-        console.log(' //TODO:구현예정', profile);
+        setUser(profile);
       }
     } catch (e) {
       const message = {

@@ -5,12 +5,23 @@ import SettingScreen from './SettingScreen';
 import UploadScreen from './UploadScreen';
 import WelcomeScreen from './WelcomeScreen';
 import SignInScreen from './signIn/SignInScreen';
+import useUserContext from '../contexts/UserContext';
 
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
+  const {user} = useUserContext();
   return (
     <Stack.Navigator>
+      {user && (
+        <Stack.Screen
+          name={'MainTab'}
+          component={MainTab}
+          options={{
+            headerShown: false,
+          }}
+        />
+      )}
       <Stack.Screen
         name="SignInScreen"
         component={SignInScreen}

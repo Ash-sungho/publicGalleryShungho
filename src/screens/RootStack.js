@@ -10,10 +10,13 @@ import useUserContext from '../contexts/UserContext';
 const Stack = createNativeStackNavigator();
 
 function RootStack() {
+  React.useEffect(() => {}, [user]);
+
   const {user} = useUserContext();
+  console.log('user::', user);
   return (
     <Stack.Navigator>
-      {user && (
+      {user ? (
         <Stack.Screen
           name={'MainTab'}
           component={MainTab}
@@ -21,15 +24,16 @@ function RootStack() {
             headerShown: false,
           }}
         />
+      ) : (
+        <Stack.Screen
+          name="SignInScreen"
+          component={SignInScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
       )}
-      <Stack.Screen
-        name="SignInScreen"
-        component={SignInScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen name="MainTab" component={MainTab} />
+
       <Stack.Screen name="SettingScreen" component={SettingScreen} />
       <Stack.Screen name="UploadScreen" component={UploadScreen} />
       <Stack.Screen

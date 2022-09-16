@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MyProfileStackNavigation from './myProfile/MyProfileStackNavigation';
 import HomeStackNavigation from './home/HomeStackNavigation';
 import useUserContext from '../contexts/UserContext';
-import {StyleSheet} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,6 +18,13 @@ const MainTab = () => {
     //   />
     // </Tab.Navigator>
     <View style={styles.block}>
+      {user.photoURL && (
+        <Image
+          source={{uri: user.photoURL}}
+          style={{width: 128, height: 128, marginBottom: 16}}
+          resizeMode={'cover'}
+        />
+      )}
       <Text style={styles.text}>{user.displayName}</Text>
     </View>
   );
